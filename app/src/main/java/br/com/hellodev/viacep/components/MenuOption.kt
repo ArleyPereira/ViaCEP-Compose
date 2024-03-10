@@ -32,28 +32,14 @@ fun MenuOption(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(5.dp)
     ) {
-
-        Spacer(
-            modifier = Modifier
-                .size(5.dp)
-                .clip(CircleShape)
-                .background(Color(0xFFC595FF))
-        )
-
-        Spacer(
-            modifier = Modifier
-                .size(5.dp)
-                .clip(CircleShape)
-                .background(Color(0xFFC595FF))
-        )
-
-        Spacer(
-            modifier = Modifier
-                .size(5.dp)
-                .clip(CircleShape)
-                .background(Color(0xFFC595FF))
-        )
-
+        repeat(3){
+            Spacer(
+                modifier = Modifier
+                    .size(5.dp)
+                    .clip(CircleShape)
+                    .background(Color(0xFFC595FF))
+            )
+        }
     }
 }
 
