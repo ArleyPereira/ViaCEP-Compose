@@ -1,4 +1,4 @@
-package br.com.hellodev.viacep.components
+package br.com.hellodev.viacep.components.search
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
