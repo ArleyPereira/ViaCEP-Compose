@@ -18,15 +18,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import br.com.hellodev.viacep.domain.remote.model.Address
 import br.com.hellodev.viacep.presenter.app.ui.components.menu.MenuOption
 
 @Composable
 fun AddressCard(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    address: Address
 ) {
     Card(
-        modifier = modifier
-            .padding(16.dp),
+        modifier = modifier,
         colors = CardDefaults.cardColors(
             containerColor = Color.White
         ),
@@ -57,7 +58,7 @@ fun AddressCard(
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
-                    text = "Avenida Paulista - Bela Vista\nSão Paulo/SP - 01311300",
+                    text = address.toString(),
                     fontSize = 16.sp,
                     color = Color.Gray
                 )
@@ -72,7 +73,16 @@ fun AddressCardPreview() {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .padding(16.dp)
     ) {
-        AddressCard()
+        AddressCard(
+            address = Address(
+                zipcode = "17805-048",
+                neighborhood = "Jardim Brasil",
+                street = "Rua Rio de Janeiro",
+                city = "Adamantina",
+                uf = "SP"
+            )
+        )
     }
 }

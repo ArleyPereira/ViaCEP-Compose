@@ -12,6 +12,7 @@ retrofit = "2.11.0"
 okhttp-bom = "4.12.0"
 dagger-hilt = "2.50"
 ksp = "1.9.23-1.0.20"
+hilt-navigation-compose = "1.0.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -32,6 +33,7 @@ material3 = { group = "androidx.compose.material3", name = "material3" }
 # Dagger hilt
 dagger-hilt = { module = "com.google.dagger:hilt-android", version.ref = "dagger-hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger-hilt" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
 
 # Retrofit
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
