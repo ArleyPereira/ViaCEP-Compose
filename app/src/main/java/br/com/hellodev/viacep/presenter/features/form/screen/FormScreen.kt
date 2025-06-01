@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -46,40 +47,45 @@ fun FormContent(
     state: FormState,
     action: (FormAction) -> Unit
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White)
-    ) {
-        DefaultTextField(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 16.dp, end  = 16.dp, top = 16.dp),
-            value = state.search,
-            label = "digite seu CEP",
-            placeholder = "00000-000",
-            singleLine = true,
-            charLimit = 8,
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Number
-            ),
-            shape = RoundedCornerShape(16.dp),
-            onValueChange = {
-                action(FormAction.UpdateSearch(it))
-            }
-        )
+    Scaffold(
+        content = { paddingValues ->
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+                    .background(Color.White)
+            ) {
+                DefaultTextField(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 16.dp, end  = 16.dp, top = 16.dp),
+                    value = state.search,
+                    label = "digite seu CEP",
+                    placeholder = "00000-000",
+                    singleLine = true,
+                    charLimit = 8,
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Number
+                    ),
+                    shape = RoundedCornerShape(16.dp),
+                    onValueChange = {
+                        action(FormAction.UpdateSearch(it))
+                    }
+                )
 
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize(),
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            items(state.addresses) { address ->
-                AddressCard(address = address)
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    contentPadding = PaddingValues(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    items(state.addresses) { address ->
+                        AddressCard(address = address)
+                    }
+                }
             }
         }
-    }
+    )
 }
 
 @Preview

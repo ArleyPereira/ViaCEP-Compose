@@ -1,6 +1,5 @@
 package br.com.hellodev.viacep.presenter.features.form.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.hellodev.viacep.domain.remote.usecase.GetAddressUseCase
